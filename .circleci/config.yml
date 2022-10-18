@@ -73,7 +73,10 @@ workflows:
   version: 2
   plan_approve_apply:
     jobs:
-      - plan-apply
+      - create-key-pair
+      - plan-apply:
+        requires:
+          - create-key-pair
       - hold-apply:
           type: approval
           requires:
