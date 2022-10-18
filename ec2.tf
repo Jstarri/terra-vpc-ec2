@@ -6,16 +6,14 @@ resource "aws_instance" "web1" {
 
   # Security Group
   vpc_security_group_ids = ["${aws_security_group.ssh-allowed.id}"]
+  
+    # the Public SSH key
+  key_name = aws_key_pair.north-virginia-region-key-pair.id
+  public_key = file("${var.PUBLIC_KEY_PATH}")
 
   connection {
     host        = self.public_ip
     user        = var.EC2_USER
     private_key = file("${var.PRIVATE_KEY_PATH}")
   }
-}
-
-// Sends your public key to the instance
-resource "aws_key_pair" "north-virginia-region-key-pair" {
-  key_name   = "north-virginia-region-key-pair"
-  public_key = file("${var.PUBLIC_KEY_PATH}")
 }
