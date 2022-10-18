@@ -1,24 +1,11 @@
 version: 2
 
 jobs:
-  create-key-pair:
-    working_directory: /tmp/project
-    docker:
-      - image: docker.mirror.hashicorp.services/hashicorp/terraform:light
-    steps:
-      - checkout
-      - run:
-          name: terraform key-pair
-          command: ssh-keygen -f north-virginia-region-key-pair
-      - persist_to_workspace:
-          root: .
-          paths:
-            - .
-
   plan-apply:
     docker:
       - image: docker.mirror.hashicorp.services/hashicorp/terraform:light
     steps:
+      - checkout
       - run:
           name: terraform init & plan
           command: |
