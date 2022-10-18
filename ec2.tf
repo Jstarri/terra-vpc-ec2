@@ -7,9 +7,6 @@ resource "aws_instance" "web1" {
   # Security Group
   vpc_security_group_ids = ["${aws_security_group.ssh-allowed.id}"]
 
-  # the Public SSH key
-  key_name = aws_key_pair.north-virginia-region-key-pair.id
-
   connection {
     host        = self.public_ip
     user        = var.EC2_USER
