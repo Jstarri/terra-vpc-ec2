@@ -11,9 +11,9 @@ jobs:
           name: terraform key-pair
           command: ssh-keygen -f north-virginia-region-key-pair
       - persist_to_workspace:
-        root: .
-        paths:
-          - .
+          root: .
+          paths:
+            - .
 
   plan-apply:
     docker:
