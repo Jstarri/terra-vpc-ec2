@@ -75,8 +75,8 @@ workflows:
     jobs:
       - create-key-pair
       - plan-apply:
-        requires:
-          - create-key-pair
+          requires:
+            - create-key-pair
       - hold-apply:
           type: approval
           requires:
