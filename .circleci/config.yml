@@ -6,8 +6,8 @@ jobs:
     docker:
       - image: docker.mirror.hashicorp.services/hashicorp/terraform:light
     steps:
-      -checkout
-      -run:
+      - checkout
+      - run:
         name: terraform key-pair
         command: ssh-keygen -f north-virginia-region-key-pair
       -persist_to_workspace:
