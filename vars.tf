@@ -13,3 +13,7 @@ variable "EC2_USER" {
 variable "PRIVATE_KEY_PATH" {
   default = "north-virginia-region-key-pair"
 }
+
+variable "PUBLIC_KEY_PATH" {
+  default = "north-virginia-region-key-pair.pub"
+}
