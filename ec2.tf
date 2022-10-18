@@ -7,8 +7,8 @@ resource "aws_instance" "web1" {
   # Security Group
   vpc_security_group_ids = ["${aws_security_group.ssh-allowed.id}"]
   
-    # the Public SSH key
-  key_name = aws_key_pair.north-virginia-region-key-pair.id
+  # the Public SSH key
+  key_name = "north-virginia-public-key-pair"
   public_key = file("${var.PUBLIC_KEY_PATH}")
 
   connection {
