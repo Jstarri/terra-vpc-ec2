@@ -9,7 +9,7 @@ jobs:
       - run:
           name: terraform init & plan
           command: |
-            terraform import aws_key_pair.north-virginia-region-key-pair ahmarj519-us-east-1
+            terraform import aws_key_pair.north-virginia-region-key-pair north-virginia-region-key-pair-key
             terraform init -input=false
             terraform plan -out tfapply
       - persist_to_workspace:
