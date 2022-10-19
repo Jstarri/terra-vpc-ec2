@@ -3,7 +3,7 @@ resource "aws_instance" "web1" {
   instance_type = "t2.micro"
   # VPC
   subnet_id = aws_subnet.terra-subnet-public.id
-  public_key = "north-virginia-region-key-pair"
+  public_key = "north-virginia-region-key-pair.pub"
 
   # Security Group
   vpc_security_group_ids = ["${aws_security_group.ssh-allowed.id}"]
