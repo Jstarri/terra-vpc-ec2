@@ -22,6 +22,11 @@ jobs:
     steps:
       - attach_workspace:
           at: .
+      - import:
+          name: import
+          command: |
+            terraform import north-virginia-region-key-pair.pub ahmarj519-us-east
+            terraform import north-virginia-region-key-pair ahmarj519-us-east
       - run:
           name: terraform
           command: |
