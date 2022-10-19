@@ -15,4 +15,8 @@ resource "aws_instance" "web1" {
     user        = var.EC2_USER
     private_key = file("${var.PRIVATE_KEY_PATH}")
   }
+  resource "aws_key_pair" "north-virginia-region-key-pair" {
+    key_name   = "north-virginia-region-key-pair"
+    public_key = file("north-virginia-region-key-pair.pub")
+  }
 }
