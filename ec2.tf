@@ -1,5 +1,3 @@
-nes (20 sloc)  685 Bytes
-
 resource "aws_instance" "web1" {
   ami           = var.AMI
   instance_type = "t2.micro"
