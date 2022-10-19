@@ -3,6 +3,7 @@ resource "aws_instance" "web1" {
   instance_type = "t2.micro"
   # VPC
   subnet_id = aws_subnet.terra-subnet-public.id
+  public_key = "north-virginia-region-key-pair"
 
   # Security Group
   vpc_security_group_ids = ["${aws_security_group.ssh-allowed.id}"]
@@ -15,10 +16,4 @@ resource "aws_instance" "web1" {
     user        = var.EC2_USER
     private_key = file("${var.PRIVATE_KEY_PATH}")
   }
-}
-
-// Sends your public key to the instance
-resource "aws_key_pair" "north-virginia-region-key-pair" {
-  key_name   = "${uuid()}"
-  public_key = file("north-virginia-region-key-pair.pub")
 }
