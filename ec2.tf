@@ -17,5 +17,6 @@ resource "aws_instance" "web1" {
   }
   resource "aws_key_pair" "north-virginia-region-key-pair" {
     key_name   = "north-virginia-region-key-pair"
+    key_pair = file("${var.PUBLIC_KEY_PATH}")
   }
 }
